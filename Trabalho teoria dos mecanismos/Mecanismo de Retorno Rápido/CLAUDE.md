@@ -22,6 +22,14 @@ mecanismo de retorno rápido (quick-return mechanism).
   entrada, etc.) — ou seja, o código deve ser parametrizado e não ter valores
   fixos "hardcoded" sem possibilidade de ajuste pelo usuário.
 
+- **O Newton-Raphson é sempre implementado à mão**, com o laço iterativo
+  explícito (resíduo, Jacobiana, `Phi_q \ (-Phi)`, atualização e teste de
+  convergência). **Não usar** `fsolve`, `vpasolve`, `solve` ou qualquer
+  solucionador pronto para a análise de posição — o método é justamente o
+  que o trabalho precisa demonstrar (Haug, seção 6).
+  - Solucionadores prontos podem ser usados **apenas** como verificação
+    independente em bloco separado, quando o usuário pedir.
+
 ## Regra de trabalho (importante)
 
 - **Não modificar nem criar o(s) arquivo(s) oficial(is) da entrega
