@@ -82,7 +82,7 @@ function desenha_mecanismo(P, q)
 %
 %  Entradas
 %    P   struct de parâmetros, precisa ter os campos:
-%        lb, l1..l3, mb, m1..m3, cb, c1..c3, d_calcanhar, d_ponta, x_ref
+%        lb, l1..l3, mb, m1..m3, cb, c1..c3, d_calcanhar, d_ponta, x_alvo
 %        (P.modelo_cm é opcional — se ausente, usa 'ponta')
 %        Índice b = barra fixa (solo->tornozelo); 1,2,3 = canela, coxa, tronco.
 %    q   [3x1] ângulos DE JUNTA (relativos) [rad]
@@ -102,7 +102,7 @@ function desenha_mecanismo(P, q)
 %    bola VERMELHA ... CM do modelo 'ponta' (massa concentrada)
 %    bola LARANJA .... CM ponderado pelas 4 barras (o real do modelo)
 %    tracejado ....... projeção vertical do CM ativo (P.modelo_cm) até o solo
-%    verde ........... x_ref, alvo do controle
+%    verde ........... x_alvo, alvo do controle
 
 q = q(:);
 
@@ -185,8 +185,8 @@ plot(ax, [cm(1), cm(1)], [cm(2), 0], '--', ...
 plot(ax, cm(1), 0, 'v', 'MarkerSize', 8, ...
      'MarkerFaceColor', [0.85 0.10 0.10], 'MarkerEdgeColor', 'k');
 
-% Alvo x_ref
-plot(ax, [P.x_ref, P.x_ref], [-0.02, 0.03], '-', ...
+% Alvo x_alvo
+plot(ax, [P.x_alvo, P.x_alvo], [-0.02, 0.03], '-', ...
      'Color', [0 0.60 0.30], 'LineWidth', 2.5);
 
 % Centros de massa (os dois modelos, para comparação visual)
